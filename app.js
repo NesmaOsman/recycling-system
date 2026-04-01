@@ -7,14 +7,14 @@ dotenv.config();
 const app = express();
 app.use(express.json());
 
-// ROUTES
+
 const authRoutes = require("./routes/authRoutes");
 const recycleRoutes = require("./routes/recycleRoutes");
 
 app.use("/api/auth", authRoutes);
 app.use("/api/recycle", recycleRoutes);
 
-// CONNECT DB
+
 mongoose.connect(process.env.MONGO_URI)
   .then(() => {
     console.log("MongoDB Connected");
