@@ -9,7 +9,7 @@ const {
   getAllUsers,
 } = require("../controllers/userController");
 
-// 🧠 CLEAN ROUTES (professional style)
+
 router
   .route("/users")
   .post(createUser)
