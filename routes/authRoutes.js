@@ -5,9 +5,6 @@ const User = require("../models/User");
 const router = express.Router();
 
 
-// =======================
-// REGISTER (FORCED DEBUG VERSION)
-// =======================
 router.post("/register", async (req, res) => {
   try {
     console.log("BODY RECEIVED:", req.body);
@@ -42,9 +39,6 @@ router.post("/register", async (req, res) => {
 });
 
 
-// =======================
-// LOGIN
-// =======================
 router.post("/login", async (req, res) => {
   try {
     console.log("LOGIN BODY:", req.body);
