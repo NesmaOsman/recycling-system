@@ -10,7 +10,7 @@ const recycleItem = async (req, res) => {
       return res.status(400).json({ message: "Missing fields" });
     }
 
-    // ⭐ POINTS RULES
+  
     let pointsEarned = 0;
 
     switch (itemType) {
@@ -27,14 +27,14 @@ const recycleItem = async (req, res) => {
         return res.status(400).json({ message: "Invalid item type" });
     }
 
-    // 1. create transaction
+
     const transaction = await Transaction.create({
       userId,
       itemType,
       pointsEarned,
     });
 
-    // 2. update user points ⭐ FIXED HERE
+  
     const user = await User.findById(userId);
 
     if (!user) {
@@ -44,7 +44,7 @@ const recycleItem = async (req, res) => {
     user.points += pointsEarned;
     await user.save();
 
-    // 3. response
+
     res.status(200).json({
       message: "Recycling successful",
       transaction,
